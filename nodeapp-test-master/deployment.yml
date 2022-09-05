@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-test-deployment
+  labels:
+    app: nodeapp-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp-test
+  template:
+    metadata:
+      labels:
+        app: nodeapp-test
+    spec:
+      containers:
+      - name: nodeserver
+        image: ecemozturk704/nodeapp-test:nodeapp-test
+        ports:
+        - containerPort: 3000
